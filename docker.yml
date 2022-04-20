@@ -3,14 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - name: Update system
-      apt:
-        update_cache: yes
-
-    - name: Upgrade system
-      apt:
-        upgrade: dist
-
     - name: Setup repository
       shell: "sudo apt-get install ca-certificates curl gnupg lsb-release"
       args:
