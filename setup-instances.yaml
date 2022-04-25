@@ -85,6 +85,15 @@
       args:
         executable: /bin/bash
     
+    - name: Allow sysctl to pass bridged traffic of IPv4 and IPv6 to iptables chains
+      shell: |
+              cat >>/etc/sysctl.d/kubernetes.conf<<eof
+              net.bridge.bridge-nf-call-ip6tables = 1
+              net.bridge.bridge-nf-call-iptables = 1
+              eof
+      args:
+        executable: /bin/bash
+        
     - name: Install kubeadm kubelet kubectl
       shell: "sudo apt-get install kubeadm kubelet kubectl -y"
       args:
