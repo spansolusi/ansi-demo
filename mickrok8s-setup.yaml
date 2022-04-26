@@ -19,7 +19,7 @@
         executable: /bin/bash
 
     - name: chown
-      shell: "sudo chown -f -R ubuntu ~/.kube"
+      shell: "sudo chown -fR ubuntu ~/.kube"
       args:
         executable: /bin/bash
         
