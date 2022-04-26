@@ -13,11 +13,16 @@
       args:
         executable: /bin/bash
 
-    - name: join group
-      shell: "sudo usermod -aG microk8s ubuntu && sudo chown -f -R ubuntu ~/.kube"
+    - name: usermod microk8s
+      shell: "sudo usermod -aG microk8s ubuntu"
       args:
         executable: /bin/bash
 
+    - name: chown
+      shell: "sudo chown -f -R ubuntu ~/.kube"
+      args:
+        executable: /bin/bash
+        
     - name: kubectl alias
       shell: "sudo snap alias microk8s.kubectl kubectl"
       args:
