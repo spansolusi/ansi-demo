@@ -14,9 +14,7 @@
         executable: /bin/bash
 
     - name: join group
-      shell: |
-              sudo usermod -aG microk8s ubuntu 
-              sudo chown -f -R ubuntu ~/.kube
+      shell: "sudo usermod -aG microk8s ubuntu && sudo chown -f -R ubuntu ~/.kube"
       args:
         executable: /bin/bash
 
