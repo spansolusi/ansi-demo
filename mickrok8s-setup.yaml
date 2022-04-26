@@ -9,7 +9,7 @@
         executable: /bin/bash
 
     - name: Install microk8s
-      shell: "sudo snap install microk8s --classis"
+      shell: "sudo snap install microk8s --classic"
       args:
         executable: /bin/bash
 
