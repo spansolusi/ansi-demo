@@ -15,12 +15,17 @@
 
     - name: join group
       shell: |
-              sudo usermod -aG microk8s ubuntu && newgrp microk8s
+              sudo usermod -aG microk8s ubuntu 
               sudo chown -f -R ubuntu ~/.kube
       args:
         executable: /bin/bash
 
-    - name: kubectl
+    - name: kubectl alias
       shell: "sudo snap alias microk8s.kubectl kubectl"
+      args:
+        executable: /bin/bash
+        
+    - name: kubectl alias
+      shell: "newgrp microk8s"
       args:
         executable: /bin/bash
