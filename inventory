@@ -1,8 +1,8 @@
-[master] 
+[master]
 192.168.5.220 ansible_user=ubuntu
-192.168.5.215 ansible_user=ubuntu
-192.168.5.215 ansible_user=ubuntu
+192.168.5.203 ansible_user=ubuntu
+192.168.5.225 ansible_user=ubuntu
 
-[worker] 
-192.168.5.220 ansible_user=ubuntu
-192.168.5.215 ansible_user=ubuntu
+[worker]
+192.168.5.240 ansible_user=ubuntu
+192.168.5.226 ansible_user=ubuntu
