@@ -49,16 +49,19 @@
     
     # Install Kubernetes
     - name: Install package
-      shell: sudo apt-get install -y apt-transport-https ca-certificates curl
+      shell: "sudo apt-get install -y apt-transport-https ca-certificates curl"
       args:
         executable: /bin/bash
+        
+    - name: Download the Google Cloud public signing key
+      shell: "sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+      args:
+        executable: /bin/bash    
     
-    - name: Add the Kubernetes apt repository
+    - name: Configure kubernetes repo
       vars:
-        string_list:'"deb https://apt.kubernetes.io/ kubernetes-xenial main"'
-      shell: |
-              sudo apt-add-repository {{ string_list }} 
-              sudo tee /etc/apt/sources.list.d/kubernetes.list
+        string_list: '"deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"'
+      shell: "sudo apt-add-repository {{ string_list }} && sudo tee /etc/apt/sources.list.d/kubernetes.list"
       args:
         executable: /bin/bash
     
