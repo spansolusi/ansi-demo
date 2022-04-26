@@ -55,7 +55,8 @@
     
     - name: Add the Kubernetes apt repository
       shell: |
-              echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+              echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
+              sudo tee /etc/apt/sources.list.d/kubernetes.list
       args:
         executable: /bin/bash
     
