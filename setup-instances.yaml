@@ -48,30 +48,18 @@
         executable: /bin/bash
     
     # Install Kubernetes
-    - name: Install transport https package
-      shell: sudo apt-get install apt-transport-https curl -y
-      args:
-        executable: /bin/bash
-      
-    - name: Add kubernetes repo key
-      shell: "wget https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    - name: Install package
+      shell: sudo apt-get install -y apt-transport-https ca-certificates curl
       args:
         executable: /bin/bash
     
-    - name: Apply kubernetes key
-      shell: "sudo apt-key add apt-key.gpg"
+    - name: Add the Kubernetes apt repository
+      shell: "echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list"
       args:
         executable: /bin/bash
     
     - name: Disable swap temporary
       shell: "sudo swapoff -a"
-      args:
-        executable: /bin/bash
-    
-    - name: Configure kubernetes repo
-      vars:
-        string_list: '"deb http://apt.kubernetes.io/ kubernetes-xenial main"'
-      shell: "sudo apt-add-repository {{ string_list }}"
       args:
         executable: /bin/bash
     
