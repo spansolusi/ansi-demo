@@ -17,18 +17,10 @@
       shell: "sudo usermod -aG microk8s ubuntu"
       args:
         executable: /bin/bash
-
-    - name: chown
-      shell: "sudo chown -fR ubuntu ~/.kube"
-      args:
-        executable: /bin/bash
         
     - name: kubectl alias
       shell: "sudo snap alias microk8s.kubectl kubectl"
       args:
         executable: /bin/bash
         
-    - name: new group
-      shell: "newgrp microk8s"
-      args:
-        executable: /bin/bash
+
