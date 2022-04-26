@@ -1,9 +1,9 @@
 ---
-- name: Setup Docker
+- name: Setup Microk8s
   hosts: all
   become: true
   tasks:
-    - name: Setup repository
+    - name: Setup tools
       shell: "sudo apt-get install snapd"
       args:
         executable: /bin/bash
@@ -15,10 +15,8 @@
 
     - name: join group
       shell: |
-              sudo usermod -a -G microk8s ubuntu 
-              sudo newgrp microk8s
+              sudo usermod -aG microk8s ubuntu && newgrp microk8s
               sudo chown -f -R ubuntu ~/.kube
-              su - ubuntu
       args:
         executable: /bin/bash
 
