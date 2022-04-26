@@ -23,6 +23,6 @@
         executable: /bin/bash
 
     - name: kubectl
-     shell: "sudo snap alias microk8s.kubectl kubectl"
+      shell: "sudo snap alias microk8s.kubectl kubectl"
       args:
         executable: /bin/bash
