@@ -1,14 +1,15 @@
-[master]
-192.168.5.220 ansible_user=ubuntu
+  GNU nano 4.8                       inventory                                  
+[master1]
+192.168.5.233 ansible_user=ubuntu
 
 [master2]
-192.168.5.203 ansible_user=ubuntu
+192.168.5.228 ansible_user=ubuntu
 
 [master3]
-192.168.5.225 ansible_user=ubuntu
+192.168.5.232 ansible_user=ubuntu
 
 [worker1]
-192.168.5.240 ansible_user=ubuntu
+192.168.5.239 ansible_user=ubuntu
 
 [worker2]
-192.168.5.226 ansible_user=ubuntu
+192.168.5.216 ansible_user=ubuntu
