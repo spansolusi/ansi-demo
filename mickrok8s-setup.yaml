@@ -1,0 +1,21 @@
+---
+- name: Setup Docker
+  hosts: all
+  become: true
+  tasks:
+    - name: Setup repository
+      shell: "sudo apt-get install snapd"
+      args:
+        executable: /bin/bash
+
+    - name: Install microk8s
+     shell: "sudo snap install microk8s --classis"
+      args:
+        executable: /bin/bash
+
+    - name: join group
+      shell: |
+              sudo usermod -a -G microk8s ubuntu
+              sudo chown -f -R ubuntu ~/.kube
+      args:
+        executable: /bin/bash
