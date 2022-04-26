@@ -28,7 +28,7 @@
       args:
         executable: /bin/bash
         
-    - name: kubectl alias
+    - name: new group
       shell: "newgrp microk8s"
       args:
         executable: /bin/bash
