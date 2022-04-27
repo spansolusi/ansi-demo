@@ -41,27 +41,25 @@
         - docker-ce
         - docker-ce-cli
         - containerd.io
-    
+       
     - name: Remove sudo on docker command
       shell: sudo usermod -aG docker ubuntu
       args:
         executable: /bin/bash
     
     # Install Kubernetes
-    - name: Install package
-      shell: "sudo apt-get install -y apt-transport-https ca-certificates curl"
+    - name: Install transport https package
+      shell: sudo apt-get install apt-transport-https curl -y
       args:
         executable: /bin/bash
-        
-    - name: Download the Google Cloud public signing key
-      shell: "sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+      
+    - name: Add kubernetes repo key
+      shell: "wget https://packages.cloud.google.com/apt/doc/apt-key.gpg"
       args:
-        executable: /bin/bash    
+        executable: /bin/bash
     
-    - name: Configure kubernetes repo
-      vars:
-        string_list: '"deb https://apt.kubernetes.io/ kubernetes-xenial main"'
-      shell: "sudo apt-add-repository {{ string_list }} && sudo tee /etc/apt/sources.list.d/kubernetes.list"
+    - name: Apply kubernetes key
+      shell: "sudo apt-key add apt-key.gpg"
       args:
         executable: /bin/bash
     
@@ -70,8 +68,15 @@
       args:
         executable: /bin/bash
     
+    - name: Configure kubernetes repo
+      vars:
+        string_list: '"deb http://apt.kubernetes.io/ kubernetes-xenial main"'
+      shell: "sudo apt-add-repository {{ string_list }}"
+      args:
+        executable: /bin/bash
+    
     - name: Install kubeadm
-      shell: "sudo apt-get install kubeadm kubectl kubelet -y"
+      shell: "sudo apt-get install kubeadm -y"
       args:
         executable: /bin/bash
     
