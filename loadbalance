@@ -1,0 +1,10 @@
+---
+- name: loadbalance
+  hosts: loadbalancer
+  become: true
+  tasks:
+    # Join Node to Master
+    - name: Install HaProxy
+      shell: "sudo apt update && apt install -y haproxy"
+      args:
+        executable: /bin/bash
