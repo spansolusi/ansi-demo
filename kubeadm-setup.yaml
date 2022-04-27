@@ -1,6 +1,6 @@
 ---
 - name: Setup Instances
-  hosts: master1
+  hosts: server
   become: true
   tasks:
     # Update & upgarde ubuntu system
