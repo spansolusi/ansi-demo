@@ -3,15 +3,6 @@
   hosts: server
   become: true
   tasks:
-    # Update & upgarde ubuntu system
-    - name: Update system
-      apt:
-        update_cache: yes
-    
-    - name: Upgrade system
-      apt:
-        upgrade: dist
-    
     # Install Docker
     - name: Setup repository
       shell: "sudo apt-get install ca-certificates curl gnupg lsb-release"
@@ -27,10 +18,6 @@
       apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal stable
         state: present
-    
-    - name: Update system
-      apt:
-        update_cache: yes
     
     - name: Install docker engine
       apt:
