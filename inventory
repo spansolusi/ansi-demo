@@ -1,14 +1,22 @@
+[server]
+192.168.5.233 ansible_user=ubuntu
+192.168.5.228 ansible_user=ubuntu
+192.168.5.232 ansible_user=ubuntu
+192.168.5.239 ansible_user=ubuntu
+192.168.5.216 ansible_user=ubuntu
+
 [master1]
 192.168.5.233 ansible_user=ubuntu
 
-[master2]
+[master]
 192.168.5.228 ansible_user=ubuntu
-
-[master3]
 192.168.5.232 ansible_user=ubuntu
 
-[worker1]
+[worker]
 192.168.5.239 ansible_user=ubuntu
-
-[worker2]
 192.168.5.216 ansible_user=ubuntu
+
+[loadbalancer]
+192.168.5.239 ansible_user=ubuntu
+192.168.5.216 ansible_user=ubuntu
+
