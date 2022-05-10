@@ -1,22 +1,22 @@
 [server]
-192.168.5.205 ansible_user=ubuntu
-192.168.5.229 ansible_user=ubuntu
-192.168.5.220 ansible_user=ubuntu
-192.168.5.211 ansible_user=ubuntu
-192.168.5.209 ansible_user=ubuntu
+192.168.5.219 ansible_user=ubuntu
+192.168.5.217 ansible_user=ubuntu
+192.168.5.228 ansible_user=ubuntu
+192.168.5.204 ansible_user=ubuntu
+192.168.5.232 ansible_user=ubuntu
 
 [master1]
-192.168.5.205 ansible_user=ubuntu
+192.168.5.228 ansible_user=ubuntu
 
 [master]
-192.168.5.229 ansible_user=ubuntu
-192.168.5.220 ansible_user=ubuntu
+192.168.5.219 ansible_user=ubuntu
+192.168.5.217 ansible_user=ubuntu
 
 [worker]
-192.168.5.211 ansible_user=ubuntu
-192.168.5.209 ansible_user=ubuntu
+192.168.5.204 ansible_user=ubuntu
+192.168.5.232 ansible_user=ubuntu
 
 [loadbalancer]
-192.168.5.218 ansible_user=ubuntu
-192.168.5.241 ansible_user=ubuntu
+192.168.5.203 ansible_user=ubuntu
+192.168.5.231 ansible_user=ubuntu
 
