@@ -23,7 +23,7 @@
       snap:
         name: microk8s
         state: present
-       classic: yes
+        classic: yes
 
     - name: Add user to Docker and Microk8s groups, they will need to logout and in again
       user:
@@ -46,7 +46,7 @@
       become: false
       lineinfile:
         path: '{{ lookup("env", "HOME") }}/.bashrc'
-       regexp: '^source \<\(kubectl'
-       line: 'source <(kubectl completion bash)'
-       state: present
+        regexp: '^source \<\(kubectl'
+        line: 'source <(kubectl completion bash)'
+        state: present
        
