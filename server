@@ -1,0 +1,5 @@
+[master]
+10.5.50.110 ansible_user=ubuntu
+[worker]
+10.5.50.190 ansible_user=ubuntu
+10.5.50.184 ansible_user=ubuntu
