@@ -89,3 +89,8 @@
         - sudo systemctl daemon-reload
         - sudo systemctl restart docker
         - sudo systemctl restart kubelet
+        
+    - name: Restart system
+      shell: "sudo reboot"
+      args:
+        executable: /bin/bash
